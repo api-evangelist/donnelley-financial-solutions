@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,124 +9,70 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Donnelley Financial Solutions
 providerId: donnelley-financial-solutions
-publisherName: Donnelley Financial Solutions
-serviceCategory: API
+publisherName: Donnelley Financial Solutions, LLC
+serviceCategory: Financial Regulatory / Compliance Software
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Financial
   - Regulatory Compliance
   - Software
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Donnelley Financial Solutions API surface. Provides a
-  FOCUS-aligned mapping for cost allocation, usage measurement, and unit-economics reporting across the
-  provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: FOCUS-aligned FinOps shape for DFIN. Billing is enterprise contract per product (ActiveDisclosure,
+  Venue, Arc Suite); per-API-call pricing is not published.
+notes: No public per-meter billing; reconciled=false.
+sources:
+  - https://www.dfinsolutions.com/
+  - https://www.dfinsolutions.com/about
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Enterprise Contract
+  billingFrequency: Per-Invoice
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
     - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
-  ServiceName: Donnelley Financial Solutions
-  ServiceCategory: Developer Tools / API
+  ServiceName: DFIN ActiveDisclosure / Venue / Arc Suite
+  ServiceCategory: Financial Regulatory / Compliance Software
   ProviderName: Donnelley Financial Solutions
-  PublisherName: Donnelley Financial Solutions
-  InvoiceIssuerName: Donnelley Financial Solutions
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: Donnelley Financial Solutions, LLC
+  InvoiceIssuerName: Donnelley Financial Solutions, LLC
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
-    aggregation: sum
+  - name: contract_seats
+    description: Active named users under the DFIN contract
+    unit: seat
+    aggregation: count
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
+      - product
+  - name: filings
+    description: SEC filings or disclosure documents processed
+    unit: document
+    aggregation: count
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
+      - product
+      - filing_type
+  - name: data_room_storage
+    description: Storage consumed by Venue data rooms
+    unit: GB-month
+    aggregation: avg
     dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Donnelley Financial Solutions API
-    baseURL: https://api.dfsco.com
-    tags:
-      - Financial
-      - Regulatory Compliance
-      - Software
-    serviceName: Donnelley Financial Solutions API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - data_room
+principles:
+  - name: Visibility
+    description: Reconcile the DFIN enterprise invoice against contracted seats, filings, and Venue data-room
+      storage; per-API-call usage is not invoiced.
+  - name: Allocation
+    description: Allocate DFIN cost to the legal/compliance team or deal team owning the SEC filing or
+      M&A data room.
+  - name: Optimization
+    description: Right-size data-room scope; archive completed deal rooms; reuse ActiveDisclosure templates
+      across recurring filings.
+  - name: Accountability
+    description: Compliance / corporate-secretary function owns DFIN spend and contract renewal.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
