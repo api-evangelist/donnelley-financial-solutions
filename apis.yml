@@ -2,7 +2,19 @@ aid: donnelley-financial-solutions
 url: https://raw.githubusercontent.com/api-evangelist/donnelley-financial-solutions/refs/heads/main/apis.yml
 name: Donnelley Financial Solutions
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/donnelley-financial-solutions.png
 tags:
   - Financial
   - Regulatory Compliance
