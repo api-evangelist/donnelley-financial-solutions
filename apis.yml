@@ -23,7 +23,7 @@ description: >-
   Donnelley Financial Solutions is a major US corporation and Fortune 1000 company. The Donnelley Financial Solutions API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
 created: '2026-04-19'
 modified: '2026-04-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: donnelley-financial-solutions:donnelley-financial-solutions-api
     name: Donnelley Financial Solutions API
