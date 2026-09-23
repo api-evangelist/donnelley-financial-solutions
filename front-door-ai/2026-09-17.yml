@@ -1,0 +1,27 @@
+# Front Door AI Index — donnelley-financial-solutions — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: donnelley-financial-solutions
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.dfsco.com
+  final_host: www.dfinsolutions.com
+  ownership: own
+  owner: donnelley-financial-solutions
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 19
+  host_score: 19
+  density: 6.24
+  words: 3045
+  tiers:
+    agentic: 0
+    core: 19
+    model: 0
+  ambiguous: 15
+  top_terms:
+    intelligence: 15
+    AI: 11
+    artificial intelligence: 8
