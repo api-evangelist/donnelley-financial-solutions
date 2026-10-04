@@ -28,6 +28,10 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/donnelley-financial-solutions.png
 tags:
+  - Finance
+  - Regulatory Compliance
+  - Software
+tags_raw:
   - Financial
   - Regulatory Compliance
   - Software
@@ -40,6 +44,10 @@ apis:
   - aid: donnelley-financial-solutions:donnelley-financial-solutions-api
     name: Donnelley Financial Solutions API
     tags:
+      - Finance
+      - Regulatory Compliance
+      - Software
+    tags_raw:
       - Financial
       - Regulatory Compliance
       - Software
